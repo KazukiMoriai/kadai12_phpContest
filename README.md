@@ -3,10 +3,10 @@
  ## ②課題内容（どんな作品か）
 ・中古車売買サイト　LoveYourCars（出品機能、絞り込み機能）
 ## ③アプリのデプロイURL デプロイしている場合はURLを記入（任意）
-https://moriai.sakura.ne.jp/kadai07_js_contest
+https://moriai.sakura.ne.jp/kadai07_js_contest  
 https://github.com/KazukiMoriai/kadai07_js_contest.git
 ## ④アプリのログイン用IDまたはPassword（ある場合）
-・ID: なし
+・ID: なし  
 ・PW:なし
  ## ⑤工夫した点・こだわった点
 【技術選定】  
@@ -18,9 +18,9 @@ https://github.com/KazukiMoriai/kadai07_js_contest.git
 ③class Carのインスタンスをdata.csvへ格納  
 ④buy.phpでdata.csvを読み込み配列へ格納。class Carの設定を呼び込み、車両情報へ再度プロパティをセット  
 
-【構造】
+【構造】  
 ・全ページで使用するheader.htmlとfooter.htmlを分けて作成し、それぞれのファイルに呼び出す形式とした（編集の容易性）  
- （同時にcssも各ページに対応させるようにファイルを分割し、可読性を担保）  
+・cssを各php,htmlに対応させるようにファイルを分割し、可読性を担保    
 
 【機能面】  
 ・sell.phpにて、出品時の情報を全て入力必須とし、未入力欄がある場合はエラーを返す  
