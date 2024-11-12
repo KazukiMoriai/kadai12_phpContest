@@ -1,0 +1,10 @@
+*{
+  box-sizing: border-box;
+}
+
+ /* body全体のフォント指定 */
+body {
+  line-height: 1;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
