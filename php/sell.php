@@ -14,6 +14,7 @@
   </style>
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/sell.css">
   <!-- サイト全体のフォント -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,52 +29,66 @@
   <!-- ここから下にコードを書く -->
   <?php  include("../html/header.html");?>    
   <form action="./class.php" method="post">
-    メーカー：<select name="maker" id="maker" onchange="updateModels()" required="required">
-      <option value="">選択してください</option>
-      <!-- 国内メーカー -->
-      <option value="toyota">トヨタ</option>
-      <option value="honda">ホンダ</option>
-      <option value="nissan">日産</option>
-      <option value="suzuki">スズキ</option>
-      <option value="mazda">マツダ</option>
-      <option value="subaru">スバル</option>
-      <option value="mitsubishi">三菱</option>
-      <option value="daihatsu">ダイハツ</option>
-      <option value="isuzu">いすゞ</option>
-      
-      <!-- 海外メーカー -->
-      <option value="ford">フォード</option>
-      <option value="chevrolet">シボレー</option>
-      <option value="gmc">GMC</option>
-      <option value="tesla">テスラ</option>
-      <option value="jeep">ジープ</option>
-      <option value="bmw">BMW</option>
-      <option value="mercedes-benz">メルセデス・ベンツ</option>
-      <option value="audi">アウディ</option>
-      <option value="volkswagen">フォルクスワーゲン</option>
-      <option value="porsche">ポルシェ</option>
-      <option value="peugeot">プジョー</option>
-      <option value="renault">ルノー</option>
-      <option value="citroen">シトロエン</option>
-      <option value="volvo">ボルボ</option>
-      <option value="saab">サーブ</option>
-      <option value="fiat">フィアット</option>
-      <option value="ferrari">フェラーリ</option>
-      <option value="lamborghini">ランボルギーニ</option>
-      <option value="maserati">マセラティ</option>
-      <option value="jaguar">ジャガー</option>
-      <option value="land-rover">ランドローバー</option>
-      <option value="hyundai">ヒュンダイ</option>
-      <option value="kia">キア</option>
-    </select><br>
-    モデル　：<select name="model" id="model" required="required">
-      <option value="">選択してください</option>
-    </select><br>
-    出品額　：<input type="text" name="price" required="required">万円<br>
-    年式　　：<select name="year" id="year" required="required">
-      <option value="">選択してください</option>
-    </select>年式<br>
-    <input type="submit" value="送信">
+    <div id="form">
+      <div id="inputMaker">
+        メーカー：
+        <select name="maker" id="maker" onchange="updateModels()" required="required">
+          <option value="">選択してください</option>
+          <!-- 国内メーカー -->
+          <option value="toyota">トヨタ</option>
+          <option value="honda">ホンダ</option>
+          <option value="nissan">日産</option>
+          <option value="suzuki">スズキ</option>
+          <option value="mazda">マツダ</option>
+          <option value="subaru">スバル</option>
+          <option value="mitsubishi">三菱</option>
+          <option value="daihatsu">ダイハツ</option>
+          <option value="isuzu">いすゞ</option>
+          
+          <!-- 海外メーカー -->
+          <option value="ford">フォード</option>
+          <option value="chevrolet">シボレー</option>
+          <option value="gmc">GMC</option>
+          <option value="tesla">テスラ</option>
+          <option value="jeep">ジープ</option>
+          <option value="bmw">BMW</option>
+          <option value="mercedes-benz">メルセデス・ベンツ</option>
+          <option value="audi">アウディ</option>
+          <option value="volkswagen">フォルクスワーゲン</option>
+          <option value="porsche">ポルシェ</option>
+          <option value="peugeot">プジョー</option>
+          <option value="renault">ルノー</option>
+          <option value="citroen">シトロエン</option>
+          <option value="volvo">ボルボ</option>
+          <option value="saab">サーブ</option>
+          <option value="fiat">フィアット</option>
+          <option value="ferrari">フェラーリ</option>
+          <option value="lamborghini">ランボルギーニ</option>
+          <option value="maserati">マセラティ</option>
+          <option value="jaguar">ジャガー</option>
+          <option value="land-rover">ランドローバー</option>
+          <option value="hyundai">ヒュンダイ</option>
+          <option value="kia">キア</option>
+        </select>
+      </div>
+      <div id="inputModel">
+        モデル　：
+        <select name="model" id="model" required="required">
+          <option value="">選択してください</option>
+        </select>
+      </div>
+      <div id="inputPrice">
+        出品額　：
+          <input type="text" name="price" required="required">万円
+      </div>
+      <div id="inputYear">
+        年式　　：
+          <select name="year" id="year" required="required">
+            <option value="">選択してください</option>
+          </select>年式
+      </div>
+      <input type="submit" value="送信">
+    </div>
   </form>
 
   <?php   include("../html/footer.html");?>

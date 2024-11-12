@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+
+div#form {
+    background-color: #9e7676;
+    height: 150px;
+    width: 100%;
+    opacity: 0.9;
+}
+
+
+
+input[type="submit"] {
+    width: 141px;
+    height: 33px;
+    width: 163px;
+    border-radius: 19px;
+    background-color: #ffac00;
+    border: solid 1px;
+    margin: 33px auto;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    
+}
