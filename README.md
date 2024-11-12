@@ -4,7 +4,6 @@
 ・中古車売買サイト　LoveYourCars（出品機能、絞り込み機能）
 ## ③アプリのデプロイURL デプロイしている場合はURLを記入（任意）
 https://moriai.sakura.ne.jp/kadai07_js_contest  
-https://github.com/KazukiMoriai/kadai07_js_contest.git
 ## ④アプリのログイン用IDまたはPassword（ある場合）
 ・ID: なし  
 ・PW:なし
