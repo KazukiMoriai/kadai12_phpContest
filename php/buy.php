@@ -194,6 +194,15 @@
             hyundai: ["エラントラ", "ソナタ", "ツーソン"],
             kia: ["セルトス", "スポーテイジ", "ソウル"]
         };
+        // 車種プルダウンを更新する関数
+        function updateModels() {
+            // メーカーとモデルのセレクトボックスを取得
+            const makerSelect = document.getElementById("maker");
+            const modelSelect = document.getElementById("model");
+            
+            // 選択されたメーカーを取得
+            const selectedMaker = makerSelect.value;
+
             // 既存の車種オプションをクリア
             modelSelect.innerHTML = '<option value="">車種を選択してください</option>';
 
@@ -207,6 +216,7 @@
                     modelSelect.appendChild(option);
                 });
             }
+        }
     </script>
 </body>
 </html>
