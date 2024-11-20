@@ -3,7 +3,7 @@
  ## ②課題内容（どんな作品か）
 ・中古車売買サイト　LoveYourCars（出品機能、絞り込み機能）
 ## ③アプリのデプロイURL デプロイしている場合はURLを記入（任意）
-・https://moriai.sakura.ne.jp/kadai07_js_contest  
+・https://moriai.sakura.ne.jp/kadai07_js_contest/php/index.php
 （現在の理解ではさくらサーバーでphp環境構築できず、デプロイは表示されません。すみません。）
 ## ④アプリのログイン用IDまたはPassword（ある場合）
 ・ID: なし  
