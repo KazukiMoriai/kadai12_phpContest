@@ -29,14 +29,13 @@
     <!-- ここから下にコードを書く -->
     <?php include("../html/header.html");?>
     <!-- 絞り込み機能 -->
-    <form action="" method="post">
+    <!-- <form action="" method="post">
         <div id="sort">
             <div id="s00">
                 <span id="s1">
-                    <span id="s11">メーカ：  
+                    <span id="s11">メーカー：  
                         <select name="maker" id="maker" onchange="updateModels()">
                             <option value="">選択してください</option>
-                            <!-- 国内メーカー -->
                             <option value="toyota">トヨタ</option>                    
                             <option value="honda">ホンダ</option>
                             <option value="nissan">日産</option>
@@ -46,7 +45,6 @@
                             <option value="mitsubishi">三菱</option>
                             <option value="daihatsu">ダイハツ</option>
                             <option value="isuzu">いすゞ</option>
-                            <!-- 海外メーカー -->
                             <option value="ford">フォード</option>
                             <option value="chevrolet">シボレー</option>
                             <option value="gmc">GMC</option>
@@ -101,7 +99,7 @@
             </div>
             <input type="submit" value="検索" id="searchButton">
         </div>
-    </form>
+    </form> -->
 
     <?php
         // 検索条件を取得
@@ -111,51 +109,56 @@
         $maxPrice   = !empty($_POST["maxPrice"]) ? intval($_POST["maxPrice"]) : PHP_INT_MAX;
         $oldestYear = !empty($_POST["oldestYear"]) ? intval($_POST["oldestYear"]) : 0;
         $latestYear = !empty($_POST["latestYear"]) ? intval($_POST["latestYear"]) : PHP_INT_MAX;      
-
-        include "./class.php";
-        // CSVから車情報を取得
-        $cars = [];
-        $file = fopen("../csv/data.csv", "r");
-        while ($line = fgetcsv($file)) {
-            list($random, $maker, $model, $price, $year) = $line;
-            $price = intval($price);
-            $year = intval($year);   
-            $car = new Car($random, $maker, $model, $price, $year);
-            $cars[] = $car; 
-        } 
-        fclose($file);
-
+        include("select.php");
+        global $values; 
         // 条件に合う車両のみ表示
-        foreach ($cars as $car) {
+        foreach ($values as $v) {
             if (
-                ($selectMaker === null || $selectMaker == $car->getMaker()) &&
-                ($selectModel === null || $selectModel == $car->getModel()) &&
-                $miniPrice <= $car->getPrice() && 
-                $car->getPrice() <= $maxPrice && 
-                $oldestYear <= $car->getYear() && 
-                $car->getYear() <= $latestYear) {
-    ?>
-    <div class="c1">
-        <div class="c11">
-            <span class="c111">車両画像</span>
-            <span class="c112">
-                <div class="c1121"><?php echo $car->getMaker(); ?></div>
-                <div class="c1122"><?php echo $car->getModel(); ?></div>
-                <div class="c1123">
-                    <span class="c11231">支払い総額：<?php echo $car->getPrice(); ?>万円</span>
-                    <span class="c11232">年式：<?php echo $car->getYear(); ?>年  </span>
-                </div>
+                ($selectMaker === null || $selectMaker == $v["maker"]) &&
+                ($selectModel === null || $selectModel == $v["model"]) &&
+                $miniPrice <= $v["price"] && 
+                $v["price"]  <= $maxPrice && 
+                $oldestYear <= $v["year"] && 
+                $v["year"]  <= $latestYear) {
+                ?>
+
+<!-- 車両表示 -->
+<div class="car">
+    <span class="c1"><img src="<?=$v["headImg"]?>" alt="車両画像" id="carImg"></span>
+    <span class="c2">
+        <div class="c21">
+            <span class="c211">
+                <div class="c2111"><?=$v["maker"]?></div>
+                <div class="c2112"><?=$v["model"]?></div>
+            </span>
+            <span class="c212">支払総額：<?=$v["price"]/10000?>万円</span>
+        </div>
+        <div class="c22">
+            <span class="c221">年式<br><?=$v["year"]?></span>
+            <span class="c222">走行距離<br><?=$v["distance"]/10000?>万km</span>
+            <span class="c223">車検有効期限<br><?=$v["expiry"]?></span>
+            <span class="c224">修理歴<br><?php 
+            if($v["repair"]==0){
+                echo "なし";
+            }else{
+                echo "あり";
+            }
+            ?></span>
+        </div>
+        <div class="c23">
+            <span class="c231"><img src="../img/person/man1.png" alt="整備士の画像"></span>
+            <span class="c232">
+                <div class="c2321">お得な一台！！</div>
+                <div class="c2322">相場より30万円程安い価格で出品されています！足回りも状態が良く、内装も目立った汚れが御座いません。安心してお乗りいただける一台となっております！</div>
             </span>
         </div>
-        <div class="c12">
-            <span class="c121">顔写真</span>
-            <span class="c122">査定コメント</span>
-        </div>
-    </div>
+    </span>
+</div>
+
+
     <?php 
             }
         }
-        include("../html/footer.html");
     ?>
 
     <script>

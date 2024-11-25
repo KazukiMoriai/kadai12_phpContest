@@ -1,0 +1,1 @@
+INSERT INTO carall(maker,model,date,headImg,price,year,distance,expiry,repair)VALUES(:maker,::model,sysdate(),:headImg,:price,:year,:distance,:expiry,:repair);";

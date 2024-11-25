@@ -1,8 +1,11 @@
 *{
     box-sizing: border-box;
   }
+
+
+
 /* 以下絞り込み */
-div#sort {
+/* div#sort {
     background-color: #f5f4f0;
     height: 180px;
     color: black;
@@ -30,94 +33,132 @@ div#sort {
     font-size: 18px;
     cursor: pointer;
   }
-  
+   */
   
   
   /* 以下車両情報 */
-  .c1 {
-    height: 360px;
+  .car {
+    margin:18px auto;
     width: 90%;
-    background-color: beige;
-    margin: 50px auto;
-    color: black;
-  }
-  
-  .c11 {
-    height: 60%;
-    width: 95%;
-    background-color: pink;
-    margin: 0px auto;
+    height: auto;
+    background-color: red;
     display: flex;
+    background-color: #f0f0f0;
     justify-content: space-between;
-  }
-  
-  .c12 {
-    height: 30%;
-    background-color: bisque;
-    width: 95%;
-    margin: 18px auto;
-    display: flex;
-  }
-  span.c111 {
-    width: 25%;
-    background-color: burlywood;
-    text-align: center;
-    font-size: 40px;
-    padding-top: 92px;
-    margin: 0 0 0 20px;
-  }
-  span.c112 {
-    background-color: lightgrey;
-    width: 70%;
-    margin: 0px 30px;
-  }
-  .c1121 {
-    height: 13%;
-    background-color: aquamarine;
-    font-size: 19px;
-    padding-top: 4px;
-    margin: 4px 0;
-  }
-  .c1122 {
-    background-color: forestgreen;
-    height: 20%;
-    font-size: 32px;
-    padding-top: 5px;
-    margin: 7px 0;
-  }
-  .c1123 {
-    background-color: goldenrod;
-    height: 52%;
-    margin: 10px 0;
-    display: flex;
-  }
-  span.c11231 {
-    width: 50%;
-    font-size: 30px;
-    padding-top: 40px;
-  }
-  
-  span.c11232 {
-    width: 50%;
-    font-size: 30px;
-    padding-top: 40px;
-  }
-  
-  span.c121 {
-    width: 9%;
-    background-color: cadetblue;
-    height: 100%;
-    margin: 0 0 0 20px;
-    font-size: 26px;
-    text-align: center;
-    padding-top: 42px;
-  }
-  
-  span.c122 {
-    background-color: azure;
-    width: 81%;
-    margin: 3px auto;
-    font-size: 27px;
-    text-align: center;
-    padding-top: 39px;
-  }
+    border-radius: 6px;
+}
+
+/* 車の写真 */
+.c1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 550px;
+}
+
+.c1 img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 右側 */
+span.c2 {
+  width: 100%;
+  margin: 10px 10px;
+}
+
+.c21 {
+  display: flex;
+  justify-content: space-between;
+}
+
+span.c211 {
+  width: 45%;
+}
+
+/* メーカー */
+.c2111 {
+  font-size: 18px;
+  color: #454545;
+  width: auto;
+}
+
+/* モデル */
+.c2112 {
+  font-size: 25px;
+  font-weight: 600;
+  margin: 10px 0;
+  color: #214060;
+}
+
+/* 支払総額 */
+span.c212 {
+  width: 64%;
+  font-size: 28px;
+  padding-top: 14px;
+  padding-left: 43px;
+}
+
+/* 年式～修理歴 */
+.c22 {
+  height: 54px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+  width: 100%;
+  line-height: 1.4;
+  margin: 8px 0 0;
+}
+
+/* 査定士欄 */
+.c23 {
+  width: 100%;
+  height: 45%;
+  margin: 17px auto 8px;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* 査定士の写真 */
+.c231{
+  display: flex;
+      align-items: center;
+      justify-content: left;
+      overflow: hidden;
+      width: 260px;
+      height: 120px;
+      margin: 0 5px;
+}
+.c231 img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 査定士の右側 */
+span.c232 {
+  width: 234%;
+
+}
+
+/* 査定士タイトル */
+.c2321 {
+  font-size: 21px;
+  margin: 9px 0;
+  line-height: 1.6;
+  border-bottom: solid #204060 2px;
+}
+
+/* 査定士コメント */
+.c2322 {
+  font-size: 15px;
+  line-height: 1.4;
+  width: 100%;
+  margin: 10px 0 0 0;
+}

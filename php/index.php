@@ -23,7 +23,6 @@
   <!-- 最初の設定は終わっています　必要な方は触ってください -->
   <body>
     <!-- ここから下にコードを書く -->
-      
     <?php
     include("../html/header.html");
     include("../html/footer.html");
