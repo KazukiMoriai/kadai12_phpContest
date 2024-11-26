@@ -28,11 +28,7 @@ if (isset($_FILES["headImg"]) && $_FILES["headImg"]["error"] == 0) {
 }
 
 // DB接続
-try {
-    $pdo = new PDO('mysql:dbname=kadai09_bookmark;charset=utf8;host=localhost', 'root', '');
-} catch (PDOException $e) {
-    exit('DBConnectError: ' . $e->getMessage());
-}
+include("dbConnect.php");
 
 // データ登録 SQL 作成
 $sql = "INSERT INTO carall (maker, model, date, headImg, price, year, distance, expiry, repair) 
@@ -57,7 +53,7 @@ if ($status == false) {
     exit("SQLError: " . $error[2]);
 } else {
     // index.php へリダイレクト
-    header("Location: index.php");
+    header("Location: buy.php");
     exit();
 }
 

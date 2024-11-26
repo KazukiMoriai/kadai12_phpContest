@@ -28,100 +28,24 @@
 <body>
     <!-- ここから下にコードを書く -->
     <?php include("../html/header.html");?>
-    <!-- 絞り込み機能 -->
-    <!-- <form action="" method="post">
-        <div id="sort">
-            <div id="s00">
-                <span id="s1">
-                    <span id="s11">メーカー：  
-                        <select name="maker" id="maker" onchange="updateModels()">
-                            <option value="">選択してください</option>
-                            <option value="toyota">トヨタ</option>                    
-                            <option value="honda">ホンダ</option>
-                            <option value="nissan">日産</option>
-                            <option value="suzuki">スズキ</option>
-                            <option value="mazda">マツダ</option>
-                            <option value="subaru">スバル</option>
-                            <option value="mitsubishi">三菱</option>
-                            <option value="daihatsu">ダイハツ</option>
-                            <option value="isuzu">いすゞ</option>
-                            <option value="ford">フォード</option>
-                            <option value="chevrolet">シボレー</option>
-                            <option value="gmc">GMC</option>
-                            <option value="tesla">テスラ</option>
-                            <option value="jeep">ジープ</option>
-                            <option value="bmw">BMW</option>
-                            <option value="mercedes-benz">メルセデス・ベンツ</option>
-                            <option value="audi">アウディ</option>
-                            <option value="volkswagen">フォルクスワーゲン</option>
-                            <option value="porsche">ポルシェ</option>
-                            <option value="peugeot">プジョー</option>
-                            <option value="renault">ルノー</option>
-                            <option value="citroen">シトロエン</option>
-                            <option value="volvo">ボルボ</option>
-                            <option value="saab">サーブ</option>
-                            <option value="fiat">フィアット</option>
-                            <option value="ferrari">フェラーリ</option>
-                            <option value="lamborghini">ランボルギーニ</option>
-                            <option value="maserati">マセラティ</option>
-                            <option value="jaguar">ジャガー</option>
-                            <option value="land-rover">ランドローバー</option>
-                            <option value="hyundai">ヒュンダイ</option>
-                            <option value="kia">キア</option>
-                        </select>
-                    </span>
-                    <span id="s2">
-                        <div id="s21">モデル：  
-                        <select name="model" id="model">
-                            <option value="">選択してください</option>
-                        </select>
-                        </div>
-                    </span>
-                </span>
-            </div>
-            <div id="s0">
-                <span id="s1">
-                    <div id="s11">支払い総額：</div>
-                    <span id="s12">
-                        <span id="s121"><input type="text" name="miniPrice" value="<?php if( !empty($_POST["miniPrice"]) ){ echo $_POST["miniPrice"]; } ?>">万円</span>
-                        <span id="s122">～</span>
-                        <span id="s123"><input type="text" name="maxPrice" value="<?php if( !empty($_POST["maxPrice"]) ){ echo $_POST["maxPrice"]; } ?>">万円</span>
-                    </span>
-                </span>
-                <span id="s2">
-                    <div id="s21">年式：</div>
-                    <div id="s22">
-                        <span id="s221"><input type="text" name="oldestYear" value="<?php if( !empty($_POST["oldestYear"]) ){ echo $_POST["oldestYear"]; } ?>">年</span>
-                        <span id="s222">～</span>
-                        <span id="s223"><input type="text" name="latestYear" value="<?php if( !empty($_POST["latestYear"]) ){ echo $_POST["latestYear"]; } ?>">年</span>
-                    </div>
-                </span>
-            </div>
-            <input type="submit" value="検索" id="searchButton">
-        </div>
-    </form> -->
+
+        <!-- 並び替え -->
+        <form action="" method="post">
+            <input type="radio" name="sort" id="priceAsc" value="priceAsc">
+            <label for="priceAsc">価格が低い順</label>
+            <input type="radio" name="sort" id="priceDesc" value="priceDesc">
+            <label for="priceDesc">価格が高い順</label>
+            <button type="submit">ソート</button>
+        </form>
 
     <?php
-        // 検索条件を取得
-        $selectMaker  = !empty($_POST["maker"]) ? $_POST["maker"] : null;
-        $selectModel  = !empty($_POST["model"]) ? $_POST["model"] : null;
-        $miniPrice  = !empty($_POST["miniPrice"]) ? intval($_POST["miniPrice"]) : 0;
-        $maxPrice   = !empty($_POST["maxPrice"]) ? intval($_POST["maxPrice"]) : PHP_INT_MAX;
-        $oldestYear = !empty($_POST["oldestYear"]) ? intval($_POST["oldestYear"]) : 0;
-        $latestYear = !empty($_POST["latestYear"]) ? intval($_POST["latestYear"]) : PHP_INT_MAX;      
         include("select.php");
+        include("sort.php");
         global $values; 
+        
         // 条件に合う車両のみ表示
-        foreach ($values as $v) {
-            if (
-                ($selectMaker === null || $selectMaker == $v["maker"]) &&
-                ($selectModel === null || $selectModel == $v["model"]) &&
-                $miniPrice <= $v["price"] && 
-                $v["price"]  <= $maxPrice && 
-                $oldestYear <= $v["year"] && 
-                $v["year"]  <= $latestYear) {
-                ?>
-
+        foreach ($values as $v) {?>
+    
 <!-- 車両表示 -->
 <div class="car">
     <span class="c1"><img src="<?=$v["headImg"]?>" alt="車両画像" id="carImg"></span>
@@ -154,13 +78,7 @@
         </div>
     </span>
 </div>
-
-
-    <?php 
-            }
-        }
-    ?>
-
+    <?php }?>
     <script>
     // モデルのプルダウン作成用のデータ
         const carModels = {
