@@ -3,7 +3,7 @@
  ## ②課題内容（どんな作品か）
 ・中古車売買サイト 「LoveYourCars」（db連携）
 ## ③アプリのデプロイURL デプロイしている場合はURLを記入（任意）
-・https://moriai.sakura.ne.jp/kadai09_db/php/index.php
+・https://moriai.sakura.ne.jp/kadai09_db/php/sell.php
 ## ④アプリのログイン用IDまたはPassword（ある場合）
 ・ID: なし  
 ・PW:なし
