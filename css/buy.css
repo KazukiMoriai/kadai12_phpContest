@@ -1,41 +1,92 @@
 *{
     box-sizing: border-box;
   }
+ 
+  
+/* モーダルの背景 */
+.ui-widget-overlay {
+  background: rgba(0, 0, 0, 0.7); /* 背景を半透明に */
+  z-index: 100; /* モーダルの背景が他の要素より上に表示されるように */
+}
+
+/* モーダル自体 */
+.ui-dialog {
+  background: #fff; /* 背景色を白に */
+  border-radius: 10px; /* 角を丸く */
+  padding: 20px;
+  width: 400px; /* モーダルの幅 */
+  max-width: 90%; /* モバイルでも適応されるように最大幅を設定 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 薄い影をつけて立体感を出す */
+}
+
+/* モーダルのタイトル */
+.ui-dialog-titlebar {
+  background: #333; /* タイトルバーの背景色 */
+  color: #fff; /* 文字色を白に */
+  font-size: 18px; /* フォントサイズ */
+  padding: 10px 20px; /* パディングで余白を調整 */
+  text-align: center; /* 中央揃え */
+  border-radius: 10px 10px 0 0; /* 角を丸く */
+}
+
+/* クローズボタン */
+.ui-dialog-titlebar-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* モーダルの内容部分 */
+.modal-content {
+  margin: 23px auto;
+  font-size: 17px;
+  text-align: center;
+  padding-top: 8px;
+}
+
+/* モーダル下部  */
+.ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix {
+  display: flex
+;
+  justify-content: center;
+}
+
+/* モーダルのボタン */
+.ui-dialog-buttonpane button {
+  background: #e9e9e9; /* ボタンの背景色 */
+  color: black; /* 文字色 */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
+  transition: background 0.3s;
+}
+
+.ui-dialog-buttonpane button:hover {
+  background: #4875d1; /* ボタンの背景色 */
+  color: white; 
+}
+
+.ui-dialog-buttonpane button:focus {
+  outline: none; /* フォーカス時に青枠が出ないように */
+}
+
+
+button {
+  cursor: pointer;
+}
 
 
 
-/* 以下絞り込み */
-/* div#sort {
-    background-color: #f5f4f0;
-    height: 180px;
-    color: black;
-  }
-  
-  div#s0 {
-    height: 116px;
-    width: 100%;
-    font-size: 22px;
-    display: flex;
-    justify-content: space-around;
-    line-height: 42px;
-    padding-top: 26px;
-  }
-  
-  input#searchButton {
-    height: 33px;
-    width: 163px;
-    border-radius: 19px;
-    background-color: #fcb847;
-    border: solid 1px;
-    margin: -15px auto;
-    display: flex;
-    justify-content: center;
-    font-size: 18px;
-    cursor: pointer;
-  }
-   */
-  
-  
+
+
   /* 以下車両情報 */
   .car {
     margin:18px auto;
@@ -47,6 +98,20 @@
     justify-content: space-between;
     border-radius: 6px;
 }
+
+
+
+
+
+span.c0 {
+  width: 65px;
+  height: 20%;
+  line-height: 1.8;
+  margin: 118px -15px 0 -45px;
+  cursor: pointer;
+}
+
+
 
 /* 車の写真 */
 .c1 {
