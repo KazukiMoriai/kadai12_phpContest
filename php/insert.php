@@ -31,7 +31,8 @@ if (isset($_FILES["headImg"]) && $_FILES["headImg"]["error"] == 0) {
 }
 
 // DB接続
-include("dbConnect.php");
+require_once("funcs.php");
+$pdo = db_connect();
 
 // データ登録 SQL 作成
 $sql = "INSERT INTO carall (maker, model, date, headImg, price, year, distance, expiry, repair) 

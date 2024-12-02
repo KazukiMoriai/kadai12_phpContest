@@ -1,3 +1,9 @@
+<?php
+session_start();
+require_once("funcs.php");
+sessionCheck();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <!-- 最初の設定は終わっています　必要な方は触ってください -->
@@ -27,8 +33,7 @@
 <!-- 最初の設定は終わっています　必要な方は触ってください -->
 <body>
     <!-- ここから下にコードを書く -->
-    <?php include("../html/header.html");?>
-
+    <?php include("../include/header.php");?>
         <!-- 並び替え -->
         <form action="" method="post">
             <input type="radio" name="sort" id="priceAsc" value="priceAsc">

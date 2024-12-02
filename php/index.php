@@ -24,7 +24,7 @@
   <body>
     <!-- ここから下にコードを書く -->
     <?php
-    include("../html/header.html");
+   include("../include/header.php");
     include("../html/footer.html");
     ?>    
   </body>

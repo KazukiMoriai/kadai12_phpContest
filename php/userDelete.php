@@ -3,21 +3,23 @@ session_start();
 require_once("funcs.php");
 sessionCheck();
 
-// データ取得
+//getデータ受信
 $id = $_GET["id"];
 
 //db接続
 $pdo = db_connect();
 
-//データ登録SQL作成
-$stmt = $pdo->prepare("DELETE FROM carall WHERE id =:id");
+//SQL文
+$sql    = "DELETE FROM user_table WHERE id=:id";
+$stmt   = $pdo->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
-$status = $stmt->execute(); //実行
+$status = $stmt->execute(); 
 
 //sql実行後
 if($status==false){
-    sql_error($stmt);
+  sql_error($stmt);
 }else{
-    redirect("admin.php");
+  redirect("userAll.php");
 }
+
 ?>

@@ -1,6 +1,7 @@
 <?php
 // DB接続
-include("dbConnect.php");
+require_once("funcs.php");
+$pdo = db_connect();
 
 // 指定された並び替え順を受信
 $sort = isset($_POST['sort']) ? $_POST['sort'] : null;

@@ -27,7 +27,7 @@
   <!-- 最初の設定は終わっています　必要な方は触ってください -->
 <body>
   <!-- ここから下にコードを書く -->
-  <?php  include("../html/header.html");?>   
+  <?php  include("../include/header.php");?>   
   <div id="form">
   <form action="insert.php" method="post" enctype="multipart/form-data">
   <table>
@@ -127,7 +127,7 @@
 </form>
 </div>
 
-<?php include("../html/footer.html"); ?>
+<?php include("../include/footer.html"); ?>
 
 <script>
   // モデルのプルダウン作成

@@ -29,9 +29,11 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
-<?php include("../include/header.php");?>
 
 <div id="message">登録が完了しました</div>
+<div id="new">
+    <input type="button" value="ログインはこちら" onclick="location.href='./login.php'">
+</div>
 
 <?php include("../include/footer.html"); ?>
 </body>

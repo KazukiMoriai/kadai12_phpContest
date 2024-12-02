@@ -29,10 +29,10 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
-<?php include("../html/header.html");?>
+<?php include("../include/header.php");?>
 
 <div id="message">更新が完了しました</div>
 
-<?php include("../html/footer.html"); ?>
+<?php include("../include/footer.html"); ?>
 </body>
 </html>

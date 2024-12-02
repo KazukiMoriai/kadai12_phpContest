@@ -1,6 +1,13 @@
 <?php
+session_start();
+require_once("funcs.php");
+sessionCheck();
+
+//id取得
+$id = $_GET["id"]; 
+
 // DB接続
-include("dbConnect.php");
+$pdo = db_connect();
 
 // データ取得
 $stmt = $pdo->prepare("SELECT * FROM carall WHERE id=:id");
@@ -8,7 +15,7 @@ $stmt->bindValue(':id',  $_GET["id"],    PDO::PARAM_INT);  //Integer（数値の
 $stmt->execute();
 
 // $valuesのグローバル化
-global $v; 
+$v = ""; 
 $v =  $stmt->fetch(); //1行だけとる（一番上の１行）
 ?>
 
@@ -41,7 +48,7 @@ $v =  $stmt->fetch(); //1行だけとる（一番上の１行）
   <!-- 最初の設定は終わっています　必要な方は触ってください -->
 <body>
   <!-- ここから下にコードを書く -->
-  <?php  include("../html/header.html");?>   
+  <?php  include("../include/header.php");?>   
   <div id="form">
   <form action="update.php" method="post" enctype="multipart/form-data">
   <table>
@@ -150,7 +157,7 @@ $v =  $stmt->fetch(); //1行だけとる（一番上の１行）
 </form>
 </div>
 
-<?php include("../html/footer.html"); ?>
+<?php include("../include/footer.html"); ?>
 
 <script>
   // モデルのプルダウン作成

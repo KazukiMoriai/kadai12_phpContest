@@ -1,3 +1,9 @@
+<?php
+session_start();
+require_once("funcs.php");
+sessionCheck();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <!-- 最初の設定は終わっています　必要な方は触ってください -->
@@ -31,7 +37,7 @@
 <!-- 最初の設定は終わっています　必要な方は触ってください -->
 <body>
     <!-- ここから下にコードを書く -->
-    <?php include("../html/header.html");?>
+    <?php include("../include/header.php");?>
 
         <!-- 並び替え -->
         <form action="" method="post">
@@ -158,34 +164,34 @@
 
     $(document).ready(function () {
     // モーダルは最初に開かない
-    $("#confirmModal").dialog({
-        autoOpen: false,  // 自動では開かない
-        modal: true,      // モーダル外クリックをブロック
-        buttons: {
-            "はい": function () {
-                let itemId = $(this).data("id");  // モーダルに設定されたIDを取得
-                let deleteUrl = "delete.php?id=" + itemId;  // 削除URLを作成
-                window.location.href = deleteUrl;  // 削除処理を実行
-            },
-            "いいえ": function () {
-                $(this).dialog("close");  // モーダルを閉じる
+        $("#confirmModal").dialog({
+            autoOpen: false,  // 自動では開かない
+            modal: true,      // モーダル外クリックをブロック
+            buttons: {
+                "はい": function () {
+                    let itemId = $(this).data("id");  // モーダルに設定されたIDを取得
+                    let deleteUrl = "delete.php?id=" + itemId;  // 削除URLを作成
+                    window.location.href = deleteUrl;  // 削除処理を実行
+                },
+                "いいえ": function () {
+                    $(this).dialog("close");  // モーダルを閉じる
+                }
             }
-        }
-    });
+        });
 
-    // 「削除」ボタンがクリックされた時にモーダルを表示
-    $(".del").on("click", function() {
-        let itemId = $(this).data("id");  // 削除対象のIDを取得
-        
-        // モーダルにIDを設定してメッセージを追加
-        $("#confirmModal").data("id", itemId).find(".modal-content p").text("本当に削除しますか？").end().dialog("open");
-    });
+        // 「削除」ボタンがクリックされた時にモーダルを表示
+        $(".del").on("click", function() {
+            let itemId = $(this).data("id");  // 削除対象のIDを取得
+            
+            // モーダルにIDを設定してメッセージを追加
+            $("#confirmModal").data("id", itemId).find(".modal-content p").text("本当に削除しますか？").end().dialog("open");
+        });
 
-    // モーダルの外側（背景部分）をクリックした時にモーダルを閉じる
-    $(document).on("click", ".ui-widget-overlay", function () {
-        $("#confirmModal").dialog("close"); // 背景をクリックするとモーダルを閉じる
+        // モーダルの外側（背景部分）をクリックした時にモーダルを閉じる
+        $(document).on("click", ".ui-widget-overlay", function () {
+            $("#confirmModal").dialog("close"); // 背景をクリックするとモーダルを閉じる
+        });
     });
-});
 
     </script>
 </body>

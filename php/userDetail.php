@@ -1,6 +1,29 @@
+<?php
+session_start();
+require_once("funcs.php");
+sessionCheck();
+
+//getデータ受信
+$id = $_GET["id"]; 
+
+//db接続
+$pdo = db_connect();
+
+//データ取得SQL
+$sql    = "SELECT * FROM user_table WHERE id=:id";
+$stmt   = $pdo->prepare($sql);
+$stmt->bindValue(":id", $id, PDO::PARAM_INT);
+$status = $stmt->execute();
+
+if($status==false) {
+  sql_error($stmt);
+}else{
+  $row = $stmt->fetch();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
-<!-- 最初の設定は終わっています　必要な方は触ってください -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +37,7 @@
     </style>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/confirm.css">
+    <link rel="stylesheet" href="../css/buy.css">
     <!-- サイト全体のフォント -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,9 +53,16 @@
 </head>
 <body>
 <?php include("../include/header.php");?>
+<form method="POST" action="userUpdate.php">
+  <div class="jumbotron">
+  <fieldset>
+    <legend>[編集]</legend>
+    <label>名前：<input type="text" name="name" value="<?=$row["name"]?>"></label><br>
+    <input type="submit" value="送信">
+    <input type="hidden" name="id" value="<?=$id?>">
+    </fieldset>
+  </div>
+</form>
 
-<div id="message">登録が完了しました</div>
-
-<?php include("../include/footer.html"); ?>
 </body>
 </html>
