@@ -1,21 +1,21 @@
 ## ①課題名
-・db連携② ユーザー認証
+・db連携③ （認証機能）
  ## ②課題内容（どんな作品か）
 ・中古車売買サイト 「LoveYourCars」（ユーザー認証）
 ## ③アプリのデプロイURL デプロイしている場合はURLを記入（任意）
 ・ https://moriai.sakura.ne.jp/kadai11_db3/php/login.php
 ## ④アプリのログイン用IDまたはPassword（ある場合）
-【管理者】
+【管理者】  
 ・ID:test1   
 ・PW:test1  
 【一般】  
 ・ID:test2   
 ・PW:test2  
  ## ⑤工夫した点・こだわった点
-・ユーザー新規登録において、以下2種類のアプローチを整備した
-　①管理者用の遷移（userAll.php→user.php→userInsert.php）
-　②初めてサイトを訪れる人用の遷移（login.php→user2.php→userInsert2.php）
-　※login.phpからuser.phpへ遷移させると、ログインしていないのにsession_idを持ってしまうため  
+・ユーザー新規登録において、以下2種類のアプローチを整備した  
+　①管理者用の遷移（userAll.php→user.php→userInsert.php）  
+　②初めてサイトを訪れる人用の遷移（login.php→user2.php→userInsert2.php）  
+　※login.phpからuser.phpへ遷移させると、ログインしていないのにsession_idを持ってしまうため    
 ・車両情報の更新削除は、管理者のみが可能とした
 ・userDetail.phpにて「名前」のみ変更可能とした  
 　└管理者が他人のidやpwを変更できてしまうと、ユーザーがログインできない事象が発生する為  
