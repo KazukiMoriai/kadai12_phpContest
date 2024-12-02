@@ -12,6 +12,7 @@ function db_connect(){
     }
 }
 
+
 //SQL実行でエラー時の処理
 function sql_error($stmt){
     //execute（SQL実行時にエラーがある場合）

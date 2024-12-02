@@ -58,13 +58,13 @@ $values =  $stmt->fetchAll(PDO::FETCH_ASSOC);
       <table>
       <?php foreach($values as $v){ ?>
         <tr>
-          <td><?=$v["id"]?></td>
           <td><?=$v["name"]?></td>
           <td><a href="userDetail.php?id=<?=$v["id"]?>">[更新]</a></td>
           <td><div class="del" data-id="<?=$v['id']?>">[削除]</div></td>
         </tr>
       <?php } ?>
       </table>
+      <input type="button" value="新規登録"  onclick="location.href='user.php'">
   </div>
 </div>
 
