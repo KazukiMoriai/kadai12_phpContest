@@ -20,7 +20,7 @@
 ・userDetail.phpにて「名前」のみ変更可能とした  
 　└管理者が他人のidやpwを変更できてしまうと、ユーザーがログインできない事象が発生する為  
 ・phpファイル数が増えファイル相関が複雑となったため、Lucidで図示してから作業した
-![Uploading file_flow.png…]()  
+![file_flow](https://github.com/user-attachments/assets/ff51019f-94f0-4fff-9fb9-cd24321e56c1)
 URL：https://lucid.app/lucidchart/13b140c5-8f89-45e7-8710-4ad904b76ae5/edit?invitationId=inv_9192f93d-4e4a-456c-bb80-f3b8bd6df6d5 
 
  ## ⑥難しかった点・次回トライしたいこと（又は機能）
