@@ -16,7 +16,7 @@
 　①管理者用の遷移（userAll.php→user.php→userInsert.php）  
 　②初めてサイトを訪れる人用の遷移（login.php→user2.php→userInsert2.php）  
 　※login.phpからuser.phpへ遷移させると、ログインしていないのにsession_idを持ってしまうため    
-・車両情報の更新削除は、管理者のみが可能とした
+・車両情報の更新削除は、管理者のみが可能とした  
 ・userDetail.phpにて「名前」のみ変更可能とした  
 　└管理者が他人のidやpwを変更できてしまうと、ユーザーがログインできない事象が発生する為  
 ・phpファイル数が増えファイル相関が複雑となったため、Lucidで図示してから作業した
