@@ -41,7 +41,7 @@ require_once("funcs.php");
 $pdo = db_connect();
 
 // データ登録 SQL 作成
-$sql = "UPDATE carall SET maker=:maker, model=:model, headImg=:headImg, price=:price, year=:year, distance=:distance, expiry=:expiry, repair=:repair WHERE id=:id";
+$sql = "UPDATE cars SET maker=:maker, model=:model, headImg=:headImg, price=:price, year=:year, distance=:distance, expiry=:expiry, repair=:repair WHERE id=:id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':maker',    $maker,    PDO::PARAM_STR);
 $stmt->bindValue(':model',    $model,    PDO::PARAM_STR);

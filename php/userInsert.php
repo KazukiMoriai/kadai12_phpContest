@@ -14,7 +14,7 @@ $lpw       = password_hash($lpw, PASSWORD_DEFAULT);
 $pdo = db_connect();
 
 //データ登録SQL作成
-$sql  = "INSERT INTO user_table(name,lid,lpw,kanri_flg,life_flg)VALUES(:name,:lid,:lpw,:kanri_flg,0)";
+$sql  = "INSERT INTO users(name,lid,lpw,kanri_flg,life_flg)VALUES(:name,:lid,:lpw,:kanri_flg,0)";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':name',      $name,      PDO::PARAM_STR); //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':lid',       $lid,       PDO::PARAM_STR); //Integer（数値の場合 PDO::PARAM_INT)

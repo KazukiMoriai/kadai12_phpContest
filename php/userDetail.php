@@ -10,7 +10,7 @@ $id = $_GET["id"];
 $pdo = db_connect();
 
 //データ取得SQL
-$sql    = "SELECT * FROM user_table WHERE id=:id";
+$sql    = "SELECT * FROM users WHERE id=:id";
 $stmt   = $pdo->prepare($sql);
 $stmt->bindValue(":id", $id, PDO::PARAM_INT);
 $status = $stmt->execute();

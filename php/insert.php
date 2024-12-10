@@ -35,7 +35,7 @@ require_once("funcs.php");
 $pdo = db_connect();
 
 // データ登録 SQL 作成
-$sql = "INSERT INTO carall (maker, model, date, headImg, price, year, distance, expiry, repair) 
+$sql = "INSERT INTO cars (maker, model, date, headImg, price, year, distance, expiry, repair) 
         VALUES (:maker, :model, sysdate(), :headImg, :price, :year, :distance, :expiry, :repair);";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':maker',    $maker,    PDO::PARAM_STR);

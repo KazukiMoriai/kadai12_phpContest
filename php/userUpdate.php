@@ -11,7 +11,7 @@ $id     = $_POST["id"];
 $pdo = db_connect();
 
 //データ更新sql
-$stmt = $pdo->prepare("UPDATE user_table SET name=:name WHERE id=:id");
+$stmt = $pdo->prepare("UPDATE users SET name=:name WHERE id=:id");
 $stmt->bindValue(':name',   $name,   PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':id',     $id,     PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $status = $stmt->execute(); //実行

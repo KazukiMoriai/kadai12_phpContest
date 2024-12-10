@@ -10,7 +10,7 @@ require_once("funcs.php");
 $pdo = db_connect();
 
 //登録SQL
-$sql = "SELECT * FROM user_table WHERE lid = :lid AND life_flg=0";
+$sql = "SELECT * FROM users WHERE lid = :lid AND life_flg=0";
 $stmt = $pdo->prepare($sql); //ログインしていい人だけ！
 $stmt->bindValue(':lid', $lid, PDO::PARAM_STR);//lidだけ渡す！！
 $status = $stmt->execute();

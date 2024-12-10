@@ -7,7 +7,7 @@ sessionCheck();
 $pdo = db_connect();
 
 //ユーザーデータの抽出
-$sql = "SELECT * FROM user_table";
+$sql = "SELECT * FROM users";
 $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
 
